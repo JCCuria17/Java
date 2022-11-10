@@ -4,18 +4,29 @@ public class CriaConta {
 	
 	public static void main(String[] args) {
 		
-		Conta primeiraConta = new Conta();
+		Conta contaJairo = new Conta();
 		
-		primeiraConta.saldo = 200;
-		System.out.println("o saldo da primeira conta e:"+ primeiraConta.saldo);
+		contaJairo.deposita(1000);
 		
-		primeiraConta.saldo += 100;
-		System.out.println("saldo atualizado da primeira conta:"+ primeiraConta.saldo);
+		contaJairo.saca(250);
+		System.out.println("Saldo Jairo:"+ contaJairo.saldo);
 		
-		Conta segundaConta = primeiraConta;  // é possivel criar uma segunda referencia para a mesma conta
-		segundaConta.saldo = 50;
-		System.out.println("primeira conta:"+ primeiraConta.saldo);
-		System.out.println("segunda conta:"+ segundaConta.saldo);
+		Conta contaAndresa = new Conta();
+		System.out.println("saldo Adresa:"+ contaAndresa.saldo);
+		
+		contaJairo.transfere(500, contaAndresa);
+		System.out.println("Saldo Jairo:"+contaJairo.saldo);
+		System.out.println("Saldo Andresa:"+ contaAndresa.saldo);
+		
+		Conta contaKayk = new Conta();
+		contaKayk.deposita(500);
+		System.out.println("Saldo Kayk:"+ contaKayk.saldo);
+		
+		contaKayk.transfere(100, contaAndresa);
+		System.out.println("Saldo Andresa:"+ contaAndresa.saldo+ "\nSaldo Kayk:" + contaKayk.saldo);
+		
+		
+		
 	}
 
 }
